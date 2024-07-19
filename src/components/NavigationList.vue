@@ -25,4 +25,10 @@ import { navigationList } from '../utils/navigationList.js';
   margin: 0;
   padding: 0px;
 }
+.list a {
+  padding: 10px;
+}
+.list a:hover {
+  color: var(--white-200);
+}
 </style>
