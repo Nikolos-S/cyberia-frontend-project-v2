@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap');
+
+:root {
+  /* color */
+  --main-background: linear-gradient(
+    180deg,
+    #24252f 0%,
+    #31313f 36.46%,
+    #242530 100%
+  );
+  --logo-footer: linear-gradient(154.02deg, #e9ecf6 -18.59%, #ffffff 64.61%);
+
+  --white-200: #eef3ff;
+  --white-500: #9aa8ba;
+  --white-900: #2b2d3a;
+
+  --rectangle: #313341;
+  --button-color: #2d76f9;
+
+  /* typography */
+  --fs-base: 18px;
+  --family: 'Fira Sans Condensed', sans-serif;
+  --mobile-family: 'Rubik', sans-serif;
+  --mobile-menu-family: 'Open Sans', sans-serif;
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-bold-mobile: 500;
+  --weight-bold: 600;
+}
