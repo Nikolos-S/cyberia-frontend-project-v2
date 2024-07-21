@@ -26,6 +26,14 @@ ul {
 }
 
 .container {
-  width: 1240px;
+  max-width: 1240px;
   margin: 0 auto;
+}
+@media (max-width: 767px) {
+  body {
+    font-family: var(--mobile-family);
+  }
+  .scrollLock {
+    overflow-y: hidden;
+  }
 }

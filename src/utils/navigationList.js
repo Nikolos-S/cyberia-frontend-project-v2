@@ -18,9 +18,5 @@ export const navigationList = [
   {
     name: 'Контакты',
     route: '#'
-  },
-  {
-    name: 'Вопросы',
-    route: '#'
   }
 ];

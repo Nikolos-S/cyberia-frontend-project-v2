@@ -14,7 +14,8 @@
 
   --white-200: #eef3ff;
   --white-500: #9aa8ba;
-  --white-900: #2b2d3a;
+  --white-600: #2b2d3a;
+  --white-900: #24252f;
 
   --rectangle: #313341;
   --button-color: #2d76f9;
@@ -22,8 +23,8 @@
   /* typography */
   --fs-base: 18px;
   --family: 'Fira Sans Condensed', sans-serif;
-  --mobile-family: 'Rubik', sans-serif;
-  --mobile-menu-family: 'Open Sans', sans-serif;
+  --mobile-family: 'Open Sans', sans-serif;
+  --mobile-menu-v2: 'Rubik', sans-serif;
   --weight-light: 300;
   --weight-normal: 400;
   --weight-bold-mobile: 500;

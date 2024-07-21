@@ -5,7 +5,7 @@ import MainHeader from '../components/MainHeader.vue';
 <template>
   <div>
     <MainHeader />
-    <main class="main">
+    <main :class="$style.main">
       <slot>
         <!-- <Main /> -->
       </slot>
@@ -16,7 +16,7 @@ import MainHeader from '../components/MainHeader.vue';
   </div>
 </template>
 
-<style scoped>
+<style module>
 .main {
   min-height: 100vh;
 }
