@@ -10,10 +10,19 @@
     #31313f 36.46%,
     #242530 100%
   );
+  --mobile-background: linear-gradient(
+    180deg,
+    #24252f 0%,
+    #31313f 36.46%,
+    #2f303d 44.58%,
+    #242530 100%
+  );
+
   --logo-footer: linear-gradient(154.02deg, #e9ecf6 -18.59%, #ffffff 64.61%);
 
   --white-200: #eef3ff;
-  --white-500: #9aa8ba;
+  --white-500: #47494c;
+  --white-550: #313341;
   --white-600: #2b2d3a;
   --white-900: #24252f;
 

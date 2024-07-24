@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue';
-import logoHeader from '../assets/img/logoHeader.svg';
-import menuBurger from '../assets/img//menuBurger.svg';
-import menuExit from '../assets/img/menuExit.svg';
+import logoHeader from '../../assets/img/logoHeader.svg';
+import menuBurger from '../../assets/img//menuBurger.svg';
+import menuExit from '../../assets/img/menuExit.svg';
 import NavigationList from './NavigationList.vue';
 
 const isActive = ref(false);
@@ -41,9 +41,11 @@ const onClick = () => {
     </header>
     <div :class="$style.route">
       <div class="container">
-        <p>
-          Главная / <span>{{ $route.meta.pageCrumb }}</span>
-        </p>
+        <div :class="$style.routeName">
+          <p>
+            Главная / <span>{{ $route.meta.pageCrumb }}</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -57,7 +59,7 @@ const onClick = () => {
   justify-content: space-between;
   align-items: center;
 
-  padding: 4.5px 0px;
+  padding: 4.5px 40px;
   margin: 0 0 70px 0;
 }
 .row_nav {
@@ -96,6 +98,9 @@ const onClick = () => {
 }
 .route {
   margin-bottom: 135px;
+}
+.routeName {
+  padding: 0 40px;
 }
 .route p {
   padding: 0;
@@ -143,14 +148,18 @@ const onClick = () => {
   .row {
     position: relative;
     margin: 0;
-    padding: 18px;
+    padding: 18px 18px 18px 25px;
   }
   .logo {
     flex: 0 0 93px;
     z-index: 1;
   }
   .route {
-    padding-top: 132px;
+    padding-top: 122px;
+    margin-bottom: 33px;
+  }
+  .routeName {
+    padding: 0 25px;
   }
 }
 </style>

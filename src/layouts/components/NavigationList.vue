@@ -1,6 +1,6 @@
 <script setup>
 //import { defineProps, defineEmits } from 'vue';
-import { navigationList } from '../utils/navigationList.js';
+import { navigationList } from '../../utils/navigationList.js';
 const props = defineProps({
   isActive: Boolean,
   openNav: Function
