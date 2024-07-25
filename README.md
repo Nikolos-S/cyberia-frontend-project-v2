@@ -1,3 +1,7 @@
+### Codeclimate:
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/7c8b489d0debf2fa2995/maintainability)](https://codeclimate.com/github/Nikolos-S/cyberia-frontend-project-v2/maintainability)
+
 # cyberia-frontend-project-v2
 
 This template should help get you started developing with Vue 3 in Vite.
