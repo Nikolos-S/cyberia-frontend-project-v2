@@ -1,6 +1,7 @@
-### Codeclimate:
+### Codeclimate status and linter status:
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/7c8b489d0debf2fa2995/maintainability)](https://codeclimate.com/github/Nikolos-S/cyberia-frontend-project-v2/maintainability)
+[![run bug fix](https://github.com/Nikolos-S/cyberia-frontend-project-v2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/Nikolos-S/cyberia-frontend-project-v2/actions/workflows/nodejs.yml)
 
 # cyberia-frontend-project-v2
 
