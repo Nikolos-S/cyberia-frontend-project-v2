@@ -1,5 +1,6 @@
 <script setup>
 import MainHeader from './components/MainHeader.vue';
+import FooterComponent from './components/FooterComponent.vue';
 </script>
 
 <template>
@@ -10,8 +11,8 @@ import MainHeader from './components/MainHeader.vue';
         <!-- <Main /> -->
       </slot>
     </main>
-    <footer style="height: 396px; background-color: var(--rectangle)">
-      hgfd
+    <footer :class="$style.footer">
+      <FooterComponent />
     </footer>
   </div>
 </template>
@@ -19,5 +20,8 @@ import MainHeader from './components/MainHeader.vue';
 <style module>
 .main {
   min-height: 100vh;
+}
+.footer {
+  background-color: var(--rectangle);
 }
 </style>

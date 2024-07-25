@@ -45,7 +45,7 @@ onMounted(() => postStore.loadData());
   font-size: 48px;
   font-weight: 600;
   color: var(--white-200);
-  margin-bottom: 75px;
+  margin-bottom: 65px;
   padding: 0 40px;
 }
 .categories {
@@ -59,7 +59,7 @@ onMounted(() => postStore.loadData());
     font-family: var(--mobile-menu-v2);
     font-size: 21px;
     font-weight: var(--weight-bold-mobile);
-    margin-bottom: 37px;
+    margin-bottom: 47px;
   }
   .categories {
     margin-bottom: 48px;

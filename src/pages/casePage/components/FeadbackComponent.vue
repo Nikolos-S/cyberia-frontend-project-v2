@@ -1,18 +1,44 @@
 <script setup>
-import { computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import formImage from '../../../assets/img/formImage.svg';
 import CustomInput from '../../../components/CustomInput.vue';
 import CustomTextarea from '../../../components/CustomTextarea.vue';
 import CustomCheckbox from '../../../components/CustomCheckbox.vue';
+import { useSnackStore } from '../../../stores/snackStore';
 import { usePostsStore } from '../../../stores/store.js';
 import {
   defaultValidation,
   emailValidation,
   phoneValidation
 } from '../../../utils/validation.js';
+
+const snackStore = useSnackStore();
 const postStore = usePostsStore();
 const { feedbacks } = storeToRefs(postStore);
+
+// Создаем реактивное свойство для текста кнопки
+const buttonText = ref('Обсудить проект');
+
+// Функция для обновления текста кнопки
+const updateButtonText = (e) => {
+  if (e.matches) {
+    feedbacks.value.ready = true;
+    buttonText.value = 'ОТПРАВИТЬ';
+  } else {
+    buttonText.value = 'Обсудить проект';
+  }
+};
+
+// Используем хук onMounted для выполнения кода после монтирования компонента
+onMounted(() => {
+  // Создаем объект медиа-запроса
+  const mediaQuery = window.matchMedia('(max-width: 889px)');
+  // Первоначальная проверка медиа-запроса
+  updateButtonText(mediaQuery);
+  // Добавляем слушателя для медиа-запроса
+  mediaQuery.addEventListener('change', updateButtonText);
+});
 
 const validName = computed(() =>
   defaultValidation
@@ -37,7 +63,17 @@ const validMessage = computed(() =>
 );
 
 const submitForm = () => {
-  console.log(feedbacks.value.name);
+  const isValid = [
+    ...validName.value,
+    ...validPhone.value,
+    ...validEmail.value,
+    ...validMessage.value
+  ];
+  if (isValid.length !== 0) {
+    snackStore.showWarn('Проверьте правильность заполненных полей');
+    return;
+  }
+  postStore.addFeadBack();
 };
 </script>
 <template>
@@ -90,7 +126,18 @@ const submitForm = () => {
         label="Согласие на обработку персональных данных"
       />
     </div>
-    <button type="submit" :class="$style.submitButton">Обсудить проект</button>
+    <button
+      type="submit"
+      :class="$style.submitButton"
+      :disabled="!feedbacks.ready"
+    >
+      {{ buttonText }}
+    </button>
+    <div :class="$style.contentText">
+      <p>
+        Нажимая “Отправить”, Вы даете согласие на обработку персональных данных
+      </p>
+    </div>
   </form>
 </template>
 <style module>
@@ -138,7 +185,6 @@ const submitForm = () => {
 .submitButton {
   display: block;
   margin: 0 auto;
-  padding: 20px 45px;
   width: 259px;
   height: 62px;
 
@@ -154,7 +200,26 @@ const submitForm = () => {
 .submitButton:active {
   transform: scale(0.95);
 }
+.submitButton:disabled {
+  transform: scale(1);
+  cursor: not-allowed;
+}
+.contentText {
+  display: none;
+  width: 274px;
+  text-align: center;
+
+  color: var(--white-200);
+  font-family: var(--mobile-family);
+  font-size: 13px;
+}
 @media (max-width: 889px) {
+  .feedback {
+    background-color: #252631;
+    padding-top: 51px;
+    margin-bottom: 0;
+    padding-bottom: 32px;
+  }
   .title {
     display: flex;
     justify-content: start;
@@ -182,6 +247,20 @@ const submitForm = () => {
   }
   .checkboxContainer {
     display: none;
+  }
+  .submitButton {
+    width: 327px;
+    height: 48px;
+    margin: 0 auto 26px auto;
+
+    font-family: var(--mobile-family);
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .contentText {
+    display: block;
+    margin: 0 auto;
   }
 }
 </style>

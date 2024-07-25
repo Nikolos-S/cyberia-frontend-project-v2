@@ -1,34 +1,28 @@
 <script setup>
-import { ref, computed } from 'vue';
-
+import { computed } from 'vue';
+// присобачить валидацию на  @blur
 const props = defineProps({
+  modelValue: String,
   type: String,
   label: String,
   rule: Array
 });
 const inputColor = computed(() =>
-  search.value !== null && props.rule.length > 0 ? '#F44336' : '#eef3ff'
+  props.modelValue !== null && props.rule.length > 0 ? '#F44336' : '#eef3ff'
 );
-const emit = defineEmits(['update:modelValue']);
-
-const search = ref(null);
-
-const handleUpdate = (v) => {
-  emit('update:modelValue', v);
-};
+defineEmits(['update:modelValue']);
 </script>
 <template>
   <div :class="$style.group">
     <label for="name">{{ label }}<sup>*</sup></label>
     <input
       id="name"
-      v-model="search"
       :placeholder="label"
-      required
       :type="type"
-      @update:model-value="handleUpdate"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
-    <p v-show="search !== null && rule.length > 0">{{ rule[0] }}</p>
+    <p v-show="modelValue !== null && rule.length > 0">{{ rule[0] }}</p>
   </div>
 </template>
 <style module>

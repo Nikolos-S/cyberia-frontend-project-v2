@@ -63,7 +63,7 @@ const click = () => {
 
 @media (max-width: 767px) {
   .list {
-    padding: 0 0 11px 24px;
+    padding: 0 0 0 24px;
     display: block;
   }
   .list li {
@@ -75,7 +75,7 @@ const click = () => {
   }
   .footerMenu {
     display: block;
-    padding: 48px 0;
+    padding: 20px 0 28px 0;
     margin: 0 48px 0 24px;
     border-top: 2px solid var(--white-600);
     border-bottom: 2px solid var(--white-600);

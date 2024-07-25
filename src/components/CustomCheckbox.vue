@@ -13,19 +13,13 @@ const search = ref(false);
 const colorLabel = computed(() => (search.value ? '#EFF3FF' : '#f44336'));
 
 const handleUpdate = (v) => {
-  console.log(v);
   emit('update:modelValue', v);
 };
 </script>
 <template>
   <label :class="$style.checkbox">
     {{ label }}
-    <input
-      v-model="search"
-      required
-      :type="type"
-      @update:model-value="handleUpdate"
-    />
+    <input v-model="search" :type="type" @update:model-value="handleUpdate" />
     <span :class="$style.checkmark"></span>
   </label>
 </template>

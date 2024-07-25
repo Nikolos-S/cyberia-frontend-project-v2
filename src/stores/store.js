@@ -48,7 +48,6 @@ export const usePostsStore = defineStore('posts', () => {
       feedbacks.value.phone = null;
       feedbacks.value.email = null;
       feedbacks.value.message = null;
-      feedbacks.value.ready = false;
     }
   };
 

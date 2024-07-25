@@ -33,7 +33,7 @@ watch(curCategory, (newCategory) => {
 </template>
 <style module>
 .nav {
-  padding-bottom: 52px;
+  padding-bottom: 34px;
   margin: 0 36.5px;
 }
 .list {
@@ -92,7 +92,7 @@ watch(curCategory, (newCategory) => {
     margin-bottom: 37px;
   }
   .nav {
-    padding-bottom: 40px;
+    padding-bottom: 5px;
     margin: 0 21.5px;
   }
   .list {

@@ -97,7 +97,7 @@ const onClick = () => {
   transform: scale(0.95);
 }
 .route {
-  margin-bottom: 135px;
+  margin-bottom: 130px;
 }
 .routeName {
   padding: 0 40px;
@@ -156,7 +156,7 @@ const onClick = () => {
   }
   .route {
     padding-top: 122px;
-    margin-bottom: 33px;
+    margin-bottom: 29px;
   }
   .routeName {
     padding: 0 25px;
