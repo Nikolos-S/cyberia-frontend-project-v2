@@ -4,7 +4,6 @@ import { ref, computed } from 'vue';
 const props = defineProps({
   type: String,
   label: String,
-  required: Boolean,
   rule: Array
 });
 const inputColor = computed(() =>
@@ -25,6 +24,7 @@ const handleUpdate = (v) => {
       id="name"
       v-model="search"
       :placeholder="label"
+      required
       :type="type"
       @update:model-value="handleUpdate"
     />
@@ -62,5 +62,26 @@ const handleUpdate = (v) => {
 }
 .group input::placeholder {
   color: transparent;
+}
+@media (max-width: 889px) {
+  .group {
+    position: static;
+    height: 75px;
+  }
+  .group label {
+    display: none;
+  }
+  .group input {
+    font-family: var(--mobile-family);
+    font-size: 13px;
+    height: 51px;
+    padding: auto 13px;
+
+    border: 0.9px solid v-bind(inputColor);
+  }
+
+  .group input::placeholder {
+    color: var(--weight-200);
+  }
 }
 </style>

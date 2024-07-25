@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
+import formImage from '../../../assets/img/formImage.svg';
 import CustomInput from '../../../components/CustomInput.vue';
 import CustomTextarea from '../../../components/CustomTextarea.vue';
 import CustomCheckbox from '../../../components/CustomCheckbox.vue';
@@ -40,8 +41,11 @@ const submitForm = () => {
 };
 </script>
 <template>
-  <form @submit.prevent="submitForm">
+  <form :class="$style.feedback" @submit.prevent="submitForm">
     <div :class="$style.title">
+      <div :class="$style.image">
+        <img alt="Почта" :src="formImage" />
+      </div>
       <p>Расскажите о вашем проекте:</p>
     </div>
     <div :class="$style.row">
@@ -81,15 +85,18 @@ const submitForm = () => {
     <div :class="$style.checkboxContainer">
       <!--Подумать как управлять шириной и высотой квадратика для кастомизации-->
       <CustomCheckbox
-        v-model="feedbacks.message"
+        v-model="feedbacks.ready"
         type="checkbox"
         label="Согласие на обработку персональных данных"
       />
     </div>
-    <button type="submit">Обсудить проект</button>
+    <button type="submit" :class="$style.submitButton">Обсудить проект</button>
   </form>
 </template>
 <style module>
+.feedback {
+  margin-bottom: 100px;
+}
 .title {
   max-width: 361px;
   color: var(--white-200);
@@ -97,6 +104,12 @@ const submitForm = () => {
   font-weight: var(--weight-bold);
   text-align: left;
   margin: 0px 40px 89px 40px;
+}
+.image {
+  display: none;
+  width: 76px;
+  height: 70px;
+  margin-right: 28px;
 }
 
 .row {
@@ -106,18 +119,69 @@ const submitForm = () => {
 }
 .inputContainer {
   min-width: 326px;
+  flex-grow: 1;
   margin: 0px 19px 11px 19px;
-  flex: 0 0 387px;
 }
 .textareaContainer {
   height: auto;
+  min-width: 326px;
   padding: 0px 40px;
   margin-bottom: 9px;
 }
 .checkboxContainer {
-  width: 100%;
+  padding: 0px 40px;
+  margin-bottom: 67px;
   display: flex;
   justify-content: start;
   align-items: center;
+}
+.submitButton {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 45px;
+  width: 259px;
+  height: 62px;
+
+  border-radius: 85px;
+  border: none;
+  background-color: var(--button-color);
+  color: white;
+}
+.submitButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.submitButton:active {
+  transform: scale(0.95);
+}
+@media (max-width: 889px) {
+  .title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    max-width: 361px;
+    font-size: 24px;
+    font-family: var(--mobile-menu-v2);
+    font-weight: var(--weight-bold-mobile);
+    text-align: left;
+    margin: 0 0 33px 0;
+    padding: 0 25px;
+  }
+  .image {
+    display: block;
+  }
+  .row {
+    display: block;
+    padding: 0 25px;
+  }
+  .inputContainer {
+    margin: 0;
+  }
+  .textareaContainer {
+    padding: 0 25px;
+  }
+  .checkboxContainer {
+    display: none;
+  }
 }
 </style>

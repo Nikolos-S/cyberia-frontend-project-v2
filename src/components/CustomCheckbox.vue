@@ -1,21 +1,46 @@
+<script setup>
+import { ref, computed } from 'vue';
+
+defineProps({
+  type: String,
+  label: String
+});
+
+const emit = defineEmits(['update:modelValue']);
+
+const search = ref(false);
+
+const colorLabel = computed(() => (search.value ? '#EFF3FF' : '#f44336'));
+
+const handleUpdate = (v) => {
+  console.log(v);
+  emit('update:modelValue', v);
+};
+</script>
 <template>
   <label :class="$style.checkbox">
-    Согласие на обработку персональных данных
-    <input type="checkbox" required />
+    {{ label }}
+    <input
+      v-model="search"
+      required
+      :type="type"
+      @update:model-value="handleUpdate"
+    />
     <span :class="$style.checkmark"></span>
   </label>
 </template>
 <style module>
 .checkbox input {
-  height: 0;
-  width: 0;
+  display: none;
 }
 .checkbox {
   display: block;
   position: relative;
-  padding-left: 26px;
-  font-size: 22px;
+  padding-left: 37px;
+  font-weight: var(--weight-light);
+  color: var(--white-200);
 }
+
 .checkmark {
   position: absolute;
   top: 0;
@@ -24,7 +49,23 @@
   width: 25px;
   background-color: transparent;
   border: 1.5px solid var(--white-200);
+  border-radius: 2px;
   cursor: pointer;
-  margin-right: 13px;
+}
+.checkmark:after {
+  top: -3px;
+  left: 5px;
+  color: var(--white-200);
+}
+.checkbox::after {
+  color: v-bind(colorLabel);
+}
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkmark:after {
+  content: '✓';
+  position: absolute;
+  display: none;
 }
 </style>

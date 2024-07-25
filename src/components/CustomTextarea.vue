@@ -4,7 +4,6 @@ import { ref, computed } from 'vue';
 const props = defineProps({
   type: String,
   label: String,
-  required: Boolean,
   rule: Array
 });
 const inputColor = computed(() =>
@@ -27,6 +26,7 @@ const handleUpdate = (v) => {
       v-model="search"
       :placeholder="label"
       :type="type"
+      required="true"
       @update:model-value="handleUpdate"
     >
     </textarea>
@@ -66,5 +66,21 @@ const handleUpdate = (v) => {
 }
 .group textarea::placeholder {
   color: transparent;
+}
+@media (max-width: 889px) {
+  .group {
+    position: static;
+  }
+  .group label {
+    display: none;
+  }
+  .group textarea {
+    font-family: var(--mobile-family);
+    font-size: 13px;
+    border: 0.9px solid v-bind(inputColor);
+  }
+  .group textarea::placeholder {
+    color: var(--weight-200);
+  }
 }
 </style>
