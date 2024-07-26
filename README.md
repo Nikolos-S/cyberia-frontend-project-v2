@@ -5,36 +5,26 @@
 
 # cyberia-frontend-project-v2
 
-This template should help get you started developing with Vue 3 in Vite.
+> Тестовый проект для клмпании "Киберия".
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Setup:
 
 ```sh
-npm install
+make install
 ```
 
-### Compile and Hot-Reload for Development
+## Start:
 
 ```sh
-npm run dev
+make start
 ```
 
-### Compile and Minify for Production
+## Figma:
 
-```sh
-npm run build
-```
+ <a href="https://www.figma.com/file/6VPDtBvcMYrqqhvwZ0GIPV/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B4%D0%BB%D1%8F-%D1%84%D1%80%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D0%B4%D0%B5%D1%80%D0%BE%D0%B2?type=design&node-id=1-113&mode=design&t=XNb7CUpvm3z6v2rs-0" target="_blank">
 
-### Lint with [ESLint](https://eslint.org/)
+## ТЗ:
 
-```sh
-npm run lint
-```
+ <a href="https://docs.google.com/document/d/1urEXBU6PZdbod7ZJnIweUqub24NNPE65Rnd48SMbRjU/edit" target="_blank">
+
+[Go To TOP](#TOP)
