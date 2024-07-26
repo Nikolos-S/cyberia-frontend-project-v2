@@ -5,7 +5,7 @@
 
 # cyberia-frontend-project-v2
 
-> Тестовый проект для клмпании "Киберия".
+> Тестовый проект для компании "Киберия".
 
 ## Setup:
 
@@ -17,6 +17,12 @@ make install
 
 ```sh
 make start
+```
+
+## start eslint:
+
+```sh
+make lint
 ```
 
 ## Figma:
