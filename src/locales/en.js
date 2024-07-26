@@ -38,6 +38,7 @@ export default {
     errorPAge: {
       notFound: 'Page not Found',
       onMain: 'to the main page'
-    }
+    },
+    noData: 'There are no matches'
   }
 };

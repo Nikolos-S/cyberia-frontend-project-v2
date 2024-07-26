@@ -38,6 +38,7 @@ export default {
     errorPAge: {
       notFound: 'Страница не найдена',
       onMain: 'На главную'
-    }
+    },
+    noData: 'Нет совпадений!'
   }
 };

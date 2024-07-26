@@ -21,7 +21,7 @@ const postStore = usePostsStore();
 const { feedbacks } = storeToRefs(postStore);
 
 // Создаем реактивное свойство для текста кнопки
-const buttonText = ref('Обсудить проект');
+const buttonText = ref(t('translation.form.buttonDesctop'));
 
 // Функция для обновления текста кнопки
 const updateButtonText = (e) => {
@@ -93,14 +93,14 @@ const submitForm = () => {
           v-model="feedbacks.name"
           type="text"
           :label="t('translation.form.nameLabel')"
-          :rule="validName"
+          :rule="validName.map((rule) => t(rule))"
         />
       </div>
       <div :class="$style.inputContainer">
         <CustomInput
           v-model="feedbacks.email"
           :label="t('translation.form.mailLabel')"
-          :rule="validEmail"
+          :rule="validEmail.map((rule) => t(rule))"
         />
       </div>
       <div :class="$style.inputContainer">
@@ -108,7 +108,7 @@ const submitForm = () => {
           v-model="feedbacks.phone"
           type="tel"
           :label="t('translation.form.phoneLabel')"
-          :rule="validPhone"
+          :rule="validPhone.map((rule) => t(rule))"
         />
       </div>
     </div>
@@ -117,7 +117,7 @@ const submitForm = () => {
         v-model="feedbacks.message"
         type="text"
         :label="t('translation.form.featbackLabel')"
-        :rule="validMessage"
+        :rule="validMessage.map((rule) => t(rule))"
       />
     </div>
     <div :class="$style.checkboxContainer">

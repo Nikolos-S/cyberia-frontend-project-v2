@@ -1,8 +1,5 @@
 <script setup>
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n({ useScope: 'global' });
 
 // присобачить валидацию на  @blur
 const props = defineProps({
@@ -28,7 +25,7 @@ defineEmits(['update:modelValue']);
       @input="$emit('update:modelValue', $event.target.value)"
     >
     </textarea>
-    <p v-show="modelValue !== null && rule.length > 0">{{ t(rule[0]) }}</p>
+    <p v-show="modelValue !== null && rule.length > 0">{{ rule[0] }}</p>
   </div>
 </template>
 <style module>
