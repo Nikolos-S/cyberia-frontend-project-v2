@@ -1,6 +1,9 @@
 <script setup>
-//import { defineProps, defineEmits } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { navigationList } from '../../utils/navigationList.js';
+
+const { t } = useI18n({ useScope: 'global' });
+
 const props = defineProps({
   isActive: Boolean,
   openNav: Function
@@ -16,17 +19,17 @@ const click = () => {
     <ul :class="$style.list">
       <li v-for="({ name, route }, index) in navigationList" :key="index">
         <router-link :to="route" @click="click">
-          {{ name }}
+          {{ t(name) }}
         </router-link>
       </li>
     </ul>
     <div :class="$style.footerMenu">
       <div :class="$style.h">
-        <p>Контакты</p>
+        <p>{{ t('translation.navFooterHeading') }}</p>
       </div>
-      <p>+7 999 123 45 67</p>
-      <p>hello@cyberia.studio</p>
-      <p>ул.Ярных, д.35, оф.10</p>
+      <p>{{ t('translation.footer.phone') }}</p>
+      <p>{{ t('translation.footer.mail') }}</p>
+      <p>{{ t('translation.footer.address') }}</p>
     </div>
   </div>
 </template>
@@ -54,11 +57,12 @@ const click = () => {
   margin-bottom: 48px;
 }
 .h p {
-  color: var(--white-200);
+  color: #9aa8ba;
   font-family: var(--mobile-family);
 }
 .footerMenu > p {
   font-size: 16px;
+  color: #9aa8ba;
 }
 
 @media (max-width: 767px) {

@@ -1,10 +1,12 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import logoHeader from '../../assets/img/logoHeader.svg';
 import menuBurger from '../../assets/img//menuBurger.svg';
 import menuExit from '../../assets/img/menuExit.svg';
 import NavigationList from './NavigationList.vue';
 
+const { t } = useI18n({ useScope: 'global' });
 const isActive = ref(false);
 const isActiveMenu = computed(() => (isActive.value ? 0 : `-100%`));
 
@@ -43,7 +45,8 @@ const onClick = () => {
       <div class="container">
         <div :class="$style.routeName">
           <p>
-            Главная / <span>{{ $route.meta.pageCrumb }}</span>
+            {{ `${t('translation.route')}/` }}
+            <span>{{ $route.meta.pageCrumb }}</span>
           </p>
         </div>
       </div>
@@ -102,13 +105,13 @@ const onClick = () => {
 .routeName {
   padding: 0 40px;
 }
+.routeName p span {
+  color: #c4d2e3;
+}
 .route p {
   padding: 0;
   margin: 0;
-  color: var(--white-500);
-}
-.route span {
-  color: #c4d2e3;
+  color: #9aa8ba;
 }
 @media (max-width: 767px) {
   .buttonBurger {
@@ -160,6 +163,13 @@ const onClick = () => {
   }
   .routeName {
     padding: 0 25px;
+
+    font-family: var(--mobile-menu-v2);
+    font-size: 12px;
+    font-weight: 300;
+  }
+  .routeName p span {
+    color: #616580;
   }
 }
 </style>

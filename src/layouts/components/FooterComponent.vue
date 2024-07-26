@@ -1,5 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n';
 import footerLogo from '../../assets/img/footerLogo.svg';
+
+const { t } = useI18n({ useScope: 'global' });
 </script>
 <template>
   <div class="container">
@@ -9,23 +12,23 @@ import footerLogo from '../../assets/img/footerLogo.svg';
           <img alt="Логотип" :src="footerLogo" />
         </div>
         <div :class="$style.subtitle">
-          <p>Веб-разработка и усиление IT-команд</p>
+          <p>{{ t('translation.footer.about') }}</p>
         </div>
       </div>
       <div :class="$style.about">
         <div>
-          <p>+7 999 123 45 67</p>
-          <p>hello@cyberia.studio</p>
-          <p>ул.Ярных, д.35, оф.10</p>
+          <p>{{ t('translation.footer.phone') }}</p>
+          <p>{{ t('translation.footer.mail') }}</p>
+          <p>{{ t('translation.footer.address') }}</p>
         </div>
         <div>
-          <p>Агентство</p>
-          <p>Услуги</p>
-          <p>Кейсы</p>
+          <p>{{ t('translation.footer.first') }}</p>
+          <p>{{ t('translation.footer.second') }}</p>
+          <p>{{ t('translation.footer.third') }}</p>
         </div>
         <div>
-          <p>Блог</p>
-          <p>Контакты</p>
+          <p>{{ t('translation.footer.fourth') }}</p>
+          <p>{{ t('translation.footer.fifth') }}</p>
         </div>
       </div>
     </div>
@@ -81,7 +84,7 @@ import footerLogo from '../../assets/img/footerLogo.svg';
     width: 207px;
     margin: 0 auto;
     font-family: var(--mobile-family);
-    font-size: 13px;
+    font-size: var(--fs-base);
     font-weight: 400;
     text-align: center;
     color: var(--white-200);

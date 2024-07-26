@@ -1,22 +1,22 @@
 export const navigationList = [
   {
-    name: 'Агенство',
+    name: 'translation.nav.first',
     route: '#'
   },
   {
-    name: 'Услуги',
+    name: 'translation.nav.second',
     route: '#'
   },
   {
-    name: 'Кейсы',
+    name: 'translation.nav.third',
     route: '/'
   },
   {
-    name: 'Блог',
+    name: 'translation.nav.fourth',
     route: '#'
   },
   {
-    name: 'Контакты',
+    name: 'translation.nav.fifth',
     route: '#'
   }
 ];

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useI18n } from 'vue-i18n';
 import formImage from '../../../assets/img/formImage.svg';
 import CustomInput from '../../../components/CustomInput.vue';
 import CustomTextarea from '../../../components/CustomTextarea.vue';
@@ -13,6 +14,8 @@ import {
   phoneValidation
 } from '../../../utils/validation.js';
 
+const { t } = useI18n({ useScope: 'global' });
+
 const snackStore = useSnackStore();
 const postStore = usePostsStore();
 const { feedbacks } = storeToRefs(postStore);
@@ -24,9 +27,9 @@ const buttonText = ref('Обсудить проект');
 const updateButtonText = (e) => {
   if (e.matches) {
     feedbacks.value.ready = true;
-    buttonText.value = 'ОТПРАВИТЬ';
+    buttonText.value = t('translation.form.buttonMobile');
   } else {
-    buttonText.value = 'Обсудить проект';
+    buttonText.value = t('translation.form.buttonDesctop');
   }
 };
 
@@ -82,22 +85,21 @@ const submitForm = () => {
       <div :class="$style.image">
         <img alt="Почта" :src="formImage" />
       </div>
-      <p>Расскажите о вашем проекте:</p>
+      <p>{{ t('translation.form.about') }}</p>
     </div>
     <div :class="$style.row">
       <div :class="$style.inputContainer">
         <CustomInput
           v-model="feedbacks.name"
           type="text"
-          label="Ваше имя"
+          :label="t('translation.form.nameLabel')"
           :rule="validName"
         />
       </div>
       <div :class="$style.inputContainer">
         <CustomInput
           v-model="feedbacks.email"
-          type="email"
-          label="Email"
+          :label="t('translation.form.mailLabel')"
           :rule="validEmail"
         />
       </div>
@@ -105,7 +107,7 @@ const submitForm = () => {
         <CustomInput
           v-model="feedbacks.phone"
           type="tel"
-          label="Телефон"
+          :label="t('translation.form.phoneLabel')"
           :rule="validPhone"
         />
       </div>
@@ -114,7 +116,7 @@ const submitForm = () => {
       <CustomTextarea
         v-model="feedbacks.message"
         type="text"
-        label="Сообщение"
+        :label="t('translation.form.featbackLabel')"
         :rule="validMessage"
       />
     </div>
@@ -123,7 +125,7 @@ const submitForm = () => {
       <CustomCheckbox
         v-model="feedbacks.ready"
         type="checkbox"
-        label="Согласие на обработку персональных данных"
+        :label="t('translation.form.checkboxLabel')"
       />
     </div>
     <button
@@ -135,7 +137,7 @@ const submitForm = () => {
     </button>
     <div :class="$style.contentText">
       <p>
-        Нажимая “Отправить”, Вы даете согласие на обработку персональных данных
+        {{ t('translation.form.checkBoxMobile') }}
       </p>
     </div>
   </form>
@@ -187,7 +189,7 @@ const submitForm = () => {
   margin: 0 auto;
   width: 259px;
   height: 62px;
-
+  font-size: 18px;
   border-radius: 85px;
   border: none;
   background-color: var(--button-color);

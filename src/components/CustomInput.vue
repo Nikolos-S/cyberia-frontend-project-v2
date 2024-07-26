@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+
 // присобачить валидацию на  @blur
 const props = defineProps({
   modelValue: String,
