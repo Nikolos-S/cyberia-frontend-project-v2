@@ -34,6 +34,10 @@ export default {
       third: 'Cases',
       fourth: 'Blog',
       fifth: 'Contacts'
+    },
+    errorPAge: {
+      notFound: 'Page not Found',
+      onMain: 'to the main page'
     }
   }
 };

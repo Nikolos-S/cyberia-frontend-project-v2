@@ -34,6 +34,10 @@ export default {
       third: 'Кейсы',
       fourth: 'Блог',
       fifth: 'Контакты'
+    },
+    errorPAge: {
+      notFound: 'Страница не найдена',
+      onMain: 'На главную'
     }
   }
 };

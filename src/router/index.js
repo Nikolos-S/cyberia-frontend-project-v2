@@ -13,7 +13,7 @@ const router = createRouter({
       path: '/:pathMatch(.*)',
       name: 'errorPage',
       component: () => import('../pages/errorPage/ErrorPage.vue'),
-      meta: { pageCrumb: 'EeeorPage', layout: 'MainLayout' }
+      meta: { pageCrumb: 'ErrorPage', layout: 'MainLayout' }
     }
   ]
 });
